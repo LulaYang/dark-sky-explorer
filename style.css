@@ -49,7 +49,7 @@ h1 {
   color: white;
   border-radius: 10px;
   padding: 15px;
-  max-width: 250px;
+  max-width: 280px;
   font-family: Georgia, serif;
   border: 1px solid #3d4460;
 }
@@ -57,23 +57,22 @@ h1 {
 .mapboxgl-popup-content h3 {
   font-size: 16px;
   margin-bottom: 6px;
-  color: #a0b4ff;
+  color: #c8d4ff;
 }
 
 .mapboxgl-popup-content p {
   font-size: 13px;
   line-height: 1.5;
-  color: #d0d6f0;
+  color: #b0b8d8;
   margin-bottom: 4px;
 }
 
 .mapboxgl-popup-content .tag {
   font-size: 11px;
-  color: #5c6bc0;
+  color: #7986cb;
   font-style: italic;
 }
 
-/* Close button color */
 .mapboxgl-popup-close-button {
   color: white;
   font-size: 16px;
