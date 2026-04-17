@@ -51,23 +51,22 @@ h1 {
   color: #111 !important;
   border-radius: 12px !important;
   padding: 0 !important;
-  width: 260px !important;
-  max-height: 240px !important;
-  overflow-y: auto !important;
+  width: 240px !important;
+  overflow: hidden !important;
   box-shadow: 0 4px 16px rgba(0,0,0,0.4) !important;
   border: none !important;
 }
 
 .popup-image {
   width: 100%;
-  height: 110px;
+  height: 120px;
   object-fit: cover;
   border-radius: 12px 12px 0 0;
   display: block;
 }
 
 .popup-body {
-  padding: 10px 12px;
+  padding: 10px 12px 12px;
 }
 
 .popup-body h3 {
@@ -84,13 +83,6 @@ h1 {
   margin-bottom: 4px;
 }
 
-.popup-body .tag {
-  font-size: 10px;
-  color: #5c6bc0;
-  font-style: italic;
-  margin-top: 3px;
-}
-
 .mapboxgl-popup-close-button {
   color: white !important;
   background: rgba(0,0,0,0.4) !important;
@@ -102,18 +94,4 @@ h1 {
   text-align: center !important;
   top: 6px !important;
   right: 6px !important;
-}
-
-.mapboxgl-popup-content::-webkit-scrollbar {
-  width: 5px;
-}
-
-.mapboxgl-popup-content::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 6px;
-}
-
-.mapboxgl-popup-content::-webkit-scrollbar-thumb {
-  background: #cccccc;
-  border-radius: 6px;
 }
