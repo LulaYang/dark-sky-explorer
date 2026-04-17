@@ -1,59 +1,80 @@
-// Store each scene's image URL, caption, and about text
-const scenes = {
-  scene1: {
-    image: "https://drive.google.com/thumbnail?id=1_L8EBNi0jBec2G5Z0DS8OzJBM-3B5iDe&sz=w2000",
-    caption: "Sedona, Arizona",
-    title: "Sedona, Arizona",
-    designated: "2014",
-    category: "Dark Sky Community",
-    area: "49.7 km²",
-    description: "The red rock scenery of Sedona has long been an iconic setting for Hollywood films about the American Old West. With its IDA designation, the city highlights its commitment to dark skies preservation as a draw for new residents and businesses."
-  },
-  scene2: {
-    image: "https://drive.google.com/thumbnail?id=13IZNJ2eygoqpt5ps_avaGQnHu86yZ9xo&sz=w2000",
-    caption: "Flagstaff, Arizona",
-    title: "Flagstaff, Arizona",
-    designated: "2001",
-    category: "Dark Sky Community",
-    area: "171 km²",
-    description: "Flagstaff was the world’s first International Dark Sky City, designated in 2001. Home to Lowell Observatory, the city has enforced strict lighting ordinances for decades to protect the night sky for astronomers and the public alike."
-  },
-  scene3: {
-    image: "https://drive.google.com/thumbnail?id=1INSwI5YF0zHDCTXHYuq11HEtglKUHExG&sz=w2000",
-    caption: "Beverly Shores, Indiana",
-    title: "Beverly Shores, Indiana",
-    designated: "2014",
-    category: "Dark Sky Community",
-    area: "15.1 km²",
-    description: "Nestled within Indiana Dunes National Park on the southern shore of Lake Michigan, Beverly Shores is a small lakeside community committed to preserving dark skies amid the greater Chicago metropolitan area."
-  },
-  scene4: {
-    image: "https://darksky.org/app/uploads/2026/02/17.jpg",
-    caption: "Old Snowmass, Colorado",
-    title: "Old Snowmass, Colorado",
-    designated: "2026",
-    category: "Dark Sky Community",
-    area: "2.6 km²",
-    description: "Old Snowmass is a rural community in the Roaring Fork Valley of Colorado, surrounded by the Elk Mountains. Its commitment to responsible outdoor lighting helps preserve spectacular views of the Milky Way for residents and visitors."
-  }
-};
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-// Switch the displayed sky image, caption, and info panel based on which button was clicked
-window.showScene = function(sceneKey) {
-  const scene = scenes[sceneKey];
+/* Dark background for the whole page */
+body {
+  background: #0b0f1a;
+  color: white;
+  font-family: Georgia, serif;
+}
 
-  // Update image and caption
-  document.getElementById("skyImage").src = scene.image;
-  document.getElementById("caption").textContent = scene.caption;
+/* Header section */
+.header {
+  text-align: center;
+  padding: 30px 20px 20px;
+}
 
-  // Update info panel content
-  document.getElementById("info-title").textContent = scene.title;
-  document.getElementById("info-description").textContent = scene.description;
-  document.getElementById("info-designated").textContent = scene.designated;
-  document.getElementById("info-category").textContent = scene.category;
-  document.getElementById("info-area").textContent = scene.area;
+h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+  color: white;
+}
 
-  // Remove active class from all buttons, then add it to the clicked one
-  document.querySelectorAll('.controls button').forEach(btn => btn.classList.remove('active'));
-  event.target.classList.add('active');
+.subtitle {
+  font-size: 16px;
+  color: #a0a8c0;
+  margin-bottom: 8px;
+}
+
+/* Call to action text */
+.cta {
+  font-size: 14px;
+  color: #5c6bc0;
+  font-style: italic;
+}
+
+/* Map takes up the rest of the page */
+#map {
+  width: 100%;
+  height: calc(100vh - 160px);
+}
+
+/* Popup styles */
+.mapboxgl-popup-content {
+  background: #1a1f35;
+  color: white;
+  border-radius: 10px;
+  padding: 15px;
+  max-width: 250px;
+  font-family: Georgia, serif;
+  border: 1px solid #3d4460;
+}
+
+.mapboxgl-popup-content h3 {
+  font-size: 16px;
+  margin-bottom: 6px;
+  color: #a0b4ff;
+}
+
+.mapboxgl-popup-content p {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #d0d6f0;
+  margin-bottom: 4px;
+}
+
+.mapboxgl-popup-content .tag {
+  font-size: 11px;
+  color: #5c6bc0;
+  font-style: italic;
+}
+
+/* Close button color */
+.mapboxgl-popup-close-button {
+  color: white;
+  font-size: 16px;
 }
