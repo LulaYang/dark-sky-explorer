@@ -9,39 +9,39 @@ const map = new mapboxgl.Map({
   zoom: 3.5
 });
 
-// Dark sky locations data
+// Dark sky locations data with images
 const locations = [
   {
     name: 'Sedona, Arizona',
     coordinates: [-111.7603, 34.8697],
     designated: '2014',
     category: 'Dark Sky Community',
-    area: '49.7 km²',
-    description: 'Famous for its red rock scenery, Sedona was designated as a Dark Sky Community in 2014, committed to preserving the night sky for residents and visitors alike.'
+    description: 'Famous for its red rock scenery, Sedona was designated as a Dark Sky Community in 2014, committed to preserving the night sky for residents and visitors alike.',
+    image: 'https://drive.google.com/thumbnail?id=1_L8EBNi0jBec2G5Z0DS8OzJBM-3B5iDe&sz=w400'
   },
   {
     name: 'Flagstaff, Arizona',
     coordinates: [-111.6513, 35.1983],
     designated: '2001',
     category: 'Dark Sky Community',
-    area: '64.7 km²',
-    description: 'The world\'s first International Dark Sky City, home to Lowell Observatory. Flagstaff has maintained strict lighting ordinances for decades to protect the night sky.'
+    description: 'The world\'s first International Dark Sky City, home to Lowell Observatory. Flagstaff has maintained strict lighting ordinances for decades to protect the night sky.',
+    image: 'https://drive.google.com/thumbnail?id=13IZNJ2eygoqpt5ps_avaGQnHu86yZ9xo&sz=w400'
   },
   {
     name: 'Beverly Shores, Indiana',
     coordinates: [-86.9956, 41.6931],
     designated: '2021',
     category: 'Dark Sky Community',
-    area: '8.4 km²',
-    description: 'Nestled within Indiana Dunes National Park on the southern shore of Lake Michigan, Beverly Shores preserves dark skies near the greater Chicago metropolitan area.'
+    description: 'Nestled within Indiana Dunes National Park on the southern shore of Lake Michigan, Beverly Shores preserves dark skies near the greater Chicago metropolitan area.',
+    image: 'https://drive.google.com/thumbnail?id=1INSwI5YF0zHDCTXHYuq11HEtglKUHExG&sz=w400'
   },
   {
     name: 'Old Snowmass, Colorado',
     coordinates: [-107.0117, 39.2319],
     designated: '2023',
     category: 'Dark Sky Community',
-    area: 'N/A',
-    description: 'A rural community in the Roaring Fork Valley surrounded by the Elk Mountains, committed to responsible outdoor lighting and spectacular Milky Way views.'
+    description: 'A rural community in the Roaring Fork Valley surrounded by the Elk Mountains, committed to responsible outdoor lighting and spectacular Milky Way views.',
+    image: 'https://darksky.org/app/uploads/2026/02/17.jpg'
   }
 ];
 
@@ -58,8 +58,9 @@ locations.forEach(location => {
   el.style.cursor = 'pointer';
   el.style.boxShadow = '0 0 10px rgba(92, 107, 192, 0.8)';
 
-  // Create popup content
+  // Create popup content with image
   const popupContent = `
+    <img src="${location.image}" alt="${location.name}" style="width:100%; border-radius:6px; margin-bottom:8px;">
     <h3>${location.name}</h3>
     <p>${location.description}</p>
     <p><strong>Designated:</strong> ${location.designated}</p>
@@ -71,7 +72,7 @@ locations.forEach(location => {
   new mapboxgl.Marker(el)
     .setLngLat(location.coordinates)
     .setPopup(
-      new mapboxgl.Popup({ offset: 25 })
+      new mapboxgl.Popup({ offset: 25, maxWidth: '280px' })
         .setHTML(popupContent)
     )
     .addTo(map);
