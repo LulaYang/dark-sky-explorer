@@ -74,7 +74,7 @@ locations.forEach(location => {
 
   new mapboxgl.Marker(el)
     .setLngLat(location.coordinates)
-    .setPopup(new mapboxgl.Popup({ offset: 15, maxWidth: '260px' }).setHTML(html))
+    .setPopup(new mapboxgl.Popup({ offset: 15, maxWidth: '260px', anchor: 'bottom' }).setHTML(html))
     .addTo(map);
 });
 
