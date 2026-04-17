@@ -1,7 +1,7 @@
 // Mapbox access token
 mapboxgl.accessToken = 'pk.eyJ1IjoibHVsYXlhbmciLCJhIjoiY21oZHAzMTYwMDVkZjJ2cHZyaHh6N3E5ayJ9.1DHnr-Iov8QBokd0I6pYTA';
 
-// Initialize the map centered on the US
+// Initialize map
 const map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/mapbox/navigation-night-v1',
@@ -9,7 +9,7 @@ const map = new mapboxgl.Map({
   zoom: 3.5
 });
 
-// Dark sky locations data with images
+// Dark sky locations
 const locations = [
   {
     name: 'Sedona, Arizona',
@@ -24,7 +24,7 @@ const locations = [
     coordinates: [-111.6513, 35.1983],
     designated: '2001',
     category: 'Dark Sky Community',
-    description: 'The world\'s first International Dark Sky City, home to Lowell Observatory. Flagstaff has maintained strict lighting ordinances for decades to protect the night sky.',
+    description: 'The world\'s first International Dark Sky City, home to Lowell Observatory. Flagstaff has maintained strict lighting ordinances for decades.',
     image: 'https://drive.google.com/thumbnail?id=13IZNJ2eygoqpt5ps_avaGQnHu86yZ9xo&sz=w400'
   },
   {
@@ -45,38 +45,38 @@ const locations = [
   }
 ];
 
-// Add markers and popups for each location
+// Add markers and popups
 locations.forEach(location => {
 
-  // Create a custom marker element
+  // Custom marker
   const el = document.createElement('div');
-  el.style.width = '20px';
-  el.style.height = '20px';
-  el.style.borderRadius = '50%';
-  el.style.backgroundColor = '#5c6bc0';
-  el.style.border = '3px solid white';
-  el.style.cursor = 'pointer';
-  el.style.boxShadow = '0 0 10px rgba(92, 107, 192, 0.8)';
-
-  // Create popup content with image
-  const popupContent = `
-    <img src="${location.image}" alt="${location.name}" style="width:100%; border-radius:6px; margin-bottom:8px;">
-    <h3>${location.name}</h3>
-    <p>${location.description}</p>
-    <p><strong>Designated:</strong> ${location.designated}</p>
-    <p><strong>Category:</strong> ${location.category}</p>
-    <p class="tag">★ International Dark Sky Place</p>
+  el.style.cssText = `
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #5c6bc0;
+    border: 3px solid white;
+    cursor: pointer;
+    box-shadow: 0 0 8px rgba(92,107,192,0.8);
   `;
 
-  // Add marker and popup to map
+  // Popup HTML
+  const html = `
+    <img class="popup-image" src="${location.image}" alt="${location.name}">
+    <div class="popup-body">
+      <h3>${location.name}</h3>
+      <p>${location.description}</p>
+      <p><strong>Designated:</strong> ${location.designated}</p>
+      <p><strong>Category:</strong> ${location.category}</p>
+      <p class="tag">★ International Dark Sky Place</p>
+    </div>
+  `;
+
   new mapboxgl.Marker(el)
     .setLngLat(location.coordinates)
-    .setPopup(
-      new mapboxgl.Popup({ offset: 25, maxWidth: '280px' })
-        .setHTML(popupContent)
-    )
+    .setPopup(new mapboxgl.Popup({ offset: 15, maxWidth: '260px' }).setHTML(html))
     .addTo(map);
 });
 
-// Add navigation controls
+// Navigation controls
 map.addControl(new mapboxgl.NavigationControl(), 'top-right');
