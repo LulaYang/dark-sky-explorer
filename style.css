@@ -47,6 +47,9 @@ h1 {
 .mapboxgl-popup-tip {
   display: none;
 }
+.mapboxgl-popup {
+  background: transparent !important;
+}
 
 /* Popup white background with dark text */
 .mapboxgl-popup-content {
