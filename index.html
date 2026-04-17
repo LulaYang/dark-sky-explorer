@@ -1,56 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dark Sky Explorer</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css" rel="stylesheet">
+  <script src="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
+</head>
+<body>
 
-  <head>
-    <meta charset="UTF-8">
-    <title>Dark Sky Explorer</title>
-    <link rel="stylesheet" href="./style.css">
-
-  </head>
-    
-  <body>
-  <!-- Main container for the entire page -->
-<div class="container">
-
-  <!-- Page title and subtitle -->
-  <h1>Dark Sky Explorer</h1>
-  
-  <!-- Buttons to switch between locations -->
-  <div class="controls">
-    <button onclick="showScene('scene1')">Sedona</button>
-    <button onclick="showScene('scene2')">Flagstaff</button>
-    <button onclick="showScene('scene3')">Beverly Shores</button>
-    <button onclick="showScene('scene4')">Old Snowmass</button>
+  <!-- Page header -->
+  <div class="header">
+    <h1>🌌 Dark Sky Explorer</h1>
+    <p class="subtitle">Explore certified International Dark Sky Places across the United States</p>
+    <p class="cta">👇 Click on a marker to learn about each location</p>
   </div>
 
-  <!-- Side by side layout: sky image on the left, info panel on the right -->
-  <div class="main-content">
+  <!-- Map container -->
+  <div id="map"></div>
 
-    <!-- Sky image display with location caption overlay -->
-    <div class="sky">
-      <img id="skyImage"
-        src="https://drive.google.com/thumbnail?id=1_L8EBNi0jBec2G5Z0DS8OzJBM-3B5iDe&sz=w2000">
-      <div class="caption" id="caption">
-        Sedona, Arizona
-      </div>
-    </div>
+  <!-- Load JavaScript -->
+  <script src="script.js"></script>
 
-    <!-- Info panel shown on the right side -->
-    <div id="info" class="info">
-      <h2 id="info-title">Sedona, Arizona</h2>
-      <p id="info-description">The red rock scenery of Sedona has long been an iconic setting for Hollywood films about the American Old West. With its IDA designation, the city highlights its commitment to dark skies preservation as a draw for new residents and businesses.</p>
-      <p><strong>Designated:</strong> <span id="info-designated">2014</span></p>
-      <p><strong>Category:</strong> <span id="info-category">Dark Sky Community</span></p>
-      <p><strong>Land Area:</strong> <span id="info-area">49.7 km²</span></p>
-    </div>
-
-  </div>
-</div>
-
-<!-- Load JavaScript file -->
-<script src="script.js"></script>
-    <script  src="./script.js"></script>
-
-  </body>
-  
+</body>
 </html>
